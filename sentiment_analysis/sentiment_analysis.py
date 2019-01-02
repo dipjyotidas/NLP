@@ -59,9 +59,15 @@ def find_features(document):
     return features
 
 
-featuresets_f = open("pickled_algos/featuresets.pickle", "rb")
-featuresets = pickle.load(featuresets_f)
-featuresets_f.close()
+featuresets = [(find_features(rev), category) for (rev, category) in documents]
+
+#featuresets_f = open("pickled_algos/featuresets.pickle", "rb")
+#featuresets = pickle.load(featuresets_f)
+#featuresets_f.close()
+
+# featuresets pickle file occupies large size of 300 MB, so did not store as pickle file
+
+
 
 random.shuffle(featuresets)
 #print(len(featuresets))
